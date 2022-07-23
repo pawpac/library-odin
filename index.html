@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <title>Library</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">Library</div>
+      <div class="main">
+        <div class="add-section">
+          <button class="add-btn" id="add-btn">+</button>
+          <div class="add-form hide" id="add-form">
+            <div class="add-book"><h3>Add Book</h3></div>
+            <div class="title-div">
+              <input type="text" id="title" class="title" placeholder="Title" required>
+            </div>
+            <div class="author-div">
+              <input type="text" id="author" class="author" placeholder="Author" required>
+            </div>
+            <div class="pages-div">
+              <input type="number" id="pages" class="pages" min="1" placeholder="Pages" required>
+            </div>
+            <div class="status-div">
+              <label for="status">Read</label>
+              <input type="checkbox" id="status" class="status">
+            </div>
+            <div class="add"><button class="add-book-btn" id="add-book-btn" type="button">Add</button></div>
+          </div>
+        </div>
+        <div class="list-section">
+          <h3>Book List</h3>
+          <div class="list" id="list">
+            <table id="table">
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Pages</th>
+                <th>Read?</th>
+                <th></th>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="footer">Images by #</div>
+    </div>
+  </body>
+</html>
