@@ -2,6 +2,7 @@ const addButton = document.getElementById('add-btn');
 const addForm = document.getElementById('add-form');
 const addBookBtn = document.getElementById('add-book-btn');
 const table = document.getElementById('table');
+const tableDiv = document.getElementById('table-div')
 
 let bookTitle = document.getElementById('title');
 let bookAuthor = document.getElementById('author');
@@ -17,12 +18,14 @@ addButton.addEventListener('click', () => {
 
 
 
-  removeClassFromRow();
+
 });
 
 addBookBtn.addEventListener('click', () => {
   addButton.classList.remove('hide');
   addForm.classList.add('hide');
+
+  removeChildren(tableDiv);
 
   addBookToLibrary();
   addToDom();
@@ -44,25 +47,34 @@ function addBookToLibrary() {
 }
 
 function addToDom() {
-  let newRow = document.createElement('tr');
-  newRow.classList.add('newRow');
-  table.appendChild(newRow);
 
-  // for (let obj of bookArray) {
 
-    for (let property in bookLibrary[bookLibrary.length - 1]) {
+
+
+  for (let obj of bookArray) {
+    let newRow = document.createElement('tr');
+    newRow.classList.add('newRow' + bookArray.indexOf(obj).toString());
+    newRow.classList.add('test');
+    tableDiv.appendChild(newRow);
+    for (let property in obj) {
       let newElement = document.createElement('td');
-      newElement.textContent = bookLibrary[bookLibrary.length - 1][property];
-      let getNewRow = document.querySelector('.newRow');
+      newElement.textContent = obj[property];
+      let getNewRow = document.querySelector('.newRow' + bookArray.indexOf(obj).toString());
       getNewRow.appendChild(newElement);
     }
-  // }
+  }
   // bookArray = [];
 }
 
 function removeClassFromRow() {
   let elementWithNewRow = document.querySelector('.newRow');
   elementWithNewRow.classList.remove('newRow');
+}
+
+function removeChildren(parent) {
+  while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+  }
 }
 
 
